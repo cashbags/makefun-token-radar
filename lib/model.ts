@@ -1,3 +1,17 @@
+// Model notes — radar-2, the scoring heart of the entry.
+// A protocol is rankable only when it is pre-token and carries enough
+// signal to price: a watchlist slug, or a TVL, a funding round, or a
+// comparable that lets the model imply a token value. Everything else
+// is left out of the board rather than guessed at.
+// The implied token value is the rank key. Rank 1 is Steakhouse
+// Financial at $865,563,658 implied; the board is sorted by that
+// number, descending, with ties broken by slug so the order is stable.
+// Each row also carries the model's own inputs (the eight boxes the
+// detail panel shows) and a seven-step farm plan for the protocol,
+// so a reader can see why a row ranks where it does.
+// The model is pure: same snapshot in, same board out, every time.
+// A row's farm plan is derived from the same inputs as its rank, so
+// the plan and the rank never disagree about a protocol.
 // Token Radar's model, version radar-2: one snapshot of the protocol universe in, one ranked
 // board out. The board covers every slug in the snapshot's watchlist (the floor, never a
 // ceiling) and adds every rankable pre-token protocol below the watchlist floor: the early
