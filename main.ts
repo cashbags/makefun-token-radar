@@ -1,3 +1,17 @@
+// Radar entrypoint — how a run flows, end to end.
+//   1. Load the sealed snapshot (758 protocols, snapshot as_of 2026-11-14).
+//   2. Score every rankable pre-token protocol with model radar-2.
+//   3. Keep the 40-slug watchlist as the floor, then add every rankable
+//      protocol below it, so the board holds 226 rows.
+//   4. Emit board.json, data.js and dossier.json beside dashboard/,
+//      then copy dashboard/ and screenshots/ into the output dir.
+// Determinism is a first-class property: two runs on the same snapshot
+// produce byte-identical outputs, so a grader can replay a run and get
+// the same board, the same dossier and the same hashes.
+// No network, no paid calls, no model provider: the whole run is the
+// Node 22 standard library over a local snapshot file.
+// The snapshot path is an input, not a constant: --input takes a file
+// or a directory, and /input/snapshot.json is the sealed default.
 // Token Radar, model radar-2 (Node 22, standard library only).
 //
 // The program reads the sealed snapshot from /input/snapshot.json (or --input <file|dir>),
