@@ -1,3 +1,15 @@
+/* Dashboard theme notes — the visual system behind the board.
+   Dark navy band for the header, amber for the accent and the rank
+   numbers, light canvas for the table. Five palette values, two
+   radii, two type families; everything else is spacing, a hairline
+   and a type step, so the board stays calm at 226 rows.
+   The table is the workhorse: sticky header, right-aligned numbers,
+   a row hover that lifts the row without shifting the layout.
+   The detail panel reuses the same tokens, so a protocol's eight
+   model boxes and seven farm steps read as one dossier, not eight
+   separate cards.
+   The amber accent is reserved for rank and value, so the eye lands
+   on the ranking first and the detail second. */
 /* Token Radar's theme, radar-2. Dark navy band, amber accent, light canvas.
    Five palette values, two radii, two families; everything else is spacing,
    a hairline and a type step. */
