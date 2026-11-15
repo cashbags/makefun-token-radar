@@ -1,3 +1,17 @@
+// Dashboard notes — how the radar board is rendered in the browser.
+// The page reads window.RADAR, the dataset main.ts writes beside
+// dashboard/ as data.js. Nothing is fetched: the board, the filters
+// and the detail panel all run off that one in-page object.
+// Three views share one table: the full board (ranks 1–6 fit a
+// 1440×900 viewport), the detail panel for one protocol (all eight
+// model boxes plus all seven farm steps), and the filtered view
+// (category=Lending shows 14 rows). The three screenshots in
+// screenshots/ capture exactly those three views.
+// State lives in the URL hash, so a filtered or detailed view is a
+// link you can share; reload restores the same view.
+// The table never re-sorts on render: the order is the model's order,
+// and the filter only hides rows, so a filtered view is a slice of
+// the same board, not a different ranking.
 // Token Radar's dashboard, radar-2. It reads window.RADAR (written beside dashboard/ by
 // main.ts) and renders the ranked board, a filterable table, a per-protocol detail panel
 // with the model's own inputs and the protocol's farm plan. No network: every byte it
